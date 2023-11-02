@@ -16,6 +16,7 @@ set(SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/src/")
 # add library source files
 set(LIB_SOURCES
         src/library.cpp
+        src/skiena/ch3/3.1.cpp
 )
 
 # add static libraries
@@ -34,7 +35,8 @@ set(PROJECT_TEST "algorithms-datastructures-tests")
 find_package(GTest 1.14.0 REQUIRED)
 
 set(TESTS_SOURCES
-        "${CMAKE_CURRENT_SOURCE_DIR}/tests/library_test.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/tests/main.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/tests/skiena/ch3/ch3_tests.cpp"
 )
 
 # add tests executables
