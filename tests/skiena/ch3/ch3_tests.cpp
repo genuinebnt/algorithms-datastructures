@@ -5,10 +5,18 @@
 #include <skiena/ch3/ch3.h>
 #include <gtest/gtest.h>
 
-TEST(matchingParentheses, matching) {
-    std::string_view string = "(((())))";
-    std::string_view string2 = "(()))()(()";
+#include <array>
 
-    EXPECT_EQ(true, chapter3::matchingParentheses(string));
-    EXPECT_EQ(false, chapter3::matchingParentheses(string2));
+using namespace chapter3;
+
+TEST(matchingParentheses, matching) {
+    std::array<std::pair<std::string, int>, 7> testCases{
+            {
+                    {"((()))", -1}, {"", -1}, {"(", 0}, {")", 0}, {"(()", 0}, {"((())))", 6}, {"((()", 0}
+            }
+    };
+
+    for (const auto &[first, second]: testCases) {
+        EXPECT_EQ(second, matchingParentheses(first));
+    }
 }

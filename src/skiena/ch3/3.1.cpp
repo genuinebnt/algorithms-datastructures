@@ -8,17 +8,25 @@
 
 using std::vector;
 
-bool chapter3::matchingParentheses(std::string_view string) {
-    vector<char> stack{};
-    for (const auto &c: string) {
-        if (c == '(') {
-            stack.push_back(c);
-        } else if (c == ')') {
-            if (!stack.empty()) {
-                stack.pop_back();
+/** @brief Idea is to push the index into the stack rather than the element
+ * if ( is the first element then immediately return the index by checking if stack is empty
+ * if after popping stack is not empty then return the first element which is index of first unmatched element
+ * */
+int chapter3::matchingParentheses(std::string_view string) {
+    vector<int> stack{};
+    for (int i = 0; i < string.size(); i++) {
+        if (string[i] == '(') {
+            stack.push_back(i);
+        } else if (string[i] == ')') {
+            if (stack.empty()) {
+                return i;
             }
+            stack.pop_back();
         }
     }
 
-    return stack.empty();
+    if (!stack.empty()) {
+        return stack.front();
+    }
+    return -1;
 }
