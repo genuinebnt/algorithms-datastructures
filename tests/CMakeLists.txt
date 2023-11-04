@@ -18,7 +18,7 @@ add_executable(${PROJECT_NAME} ${TESTS_SOURCES})
 # compile test target for cpp 20
 target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_20)
 
-# compiler definitions
+# compiler definitionsgit
 target_compile_definitions(
         ${PROJECT_NAME}
         PRIVATE

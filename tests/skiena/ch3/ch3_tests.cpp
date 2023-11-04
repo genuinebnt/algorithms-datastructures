@@ -34,7 +34,7 @@ TEST(longestParentheses, chapter3) {
 }
 
 TEST(linkedList, chapter3) {
-    LinkedList list{};
+    LinkedList<int> list{};
 
     list.push_back(3);
     list.push_front(1);
