@@ -3,7 +3,7 @@
  * Identify position of first offending parentheses
  */
 
-#include "skiena/ch3/ch3.h"
+#include "skiena/ch3/3.1.h"
 #include <vector>
 
 using std::vector;
@@ -25,8 +25,5 @@ int chapter3::matchingParentheses(std::string_view string) {
         }
     }
 
-    if (!stack.empty()) {
-        return stack.front();
-    }
-    return -1;
+    return stack.empty() ? -1 : stack.front();
 }
