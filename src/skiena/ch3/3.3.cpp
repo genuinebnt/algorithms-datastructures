@@ -4,6 +4,7 @@
 
 #include "skiena/ch3/3.3.h"
 
+
 namespace chapter3 {
     LinkedList::LinkedList() = default;
 
@@ -14,9 +15,9 @@ namespace chapter3 {
             return;
         }
 
-        Node *node = new Node(elem, nullptr);
+        std::shared_ptr<Node> node{std::make_shared<Node>(elem, nullptr)};
 
-        Node *curr = head_;
+        std::shared_ptr<Node> curr{head_};
 
         if (index == 0) {
             node->next = head_;
@@ -53,7 +54,7 @@ namespace chapter3 {
 
     std::vector<int> LinkedList::traverse() const {
         std::vector<int> elems{};
-        Node *curr{head_};
+        std::shared_ptr<Node> curr{head_};
         while (curr) {
             elems.push_back(curr->elem);
             curr = curr->next;
@@ -67,13 +68,13 @@ namespace chapter3 {
             return;
         }
 
-        Node *curr = head_;
+        std::shared_ptr<Node> curr = head_;
 
         if (size_ == 1) {
             head_ = nullptr;
             tail_ = nullptr;
         } else if (index == 0) {
-            Node *firstNode = head_;
+            std::shared_ptr<Node> firstNode = head_;
             head_ = head_->next;
             firstNode->next = nullptr;
         } else {
@@ -81,7 +82,7 @@ namespace chapter3 {
                 curr = curr->next;
             }
 
-            Node *nextNode = curr->next->next;
+            std::shared_ptr<Node> nextNode = curr->next->next;
             curr->next->next = nullptr;
             curr->next = nextNode;
             if (nextNode == nullptr) {
