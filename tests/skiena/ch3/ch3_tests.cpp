@@ -50,6 +50,8 @@ TEST(linkedList, chapter3) {
     list.erase(3);
     list.push_back(31);
     list.push_front(9);
+    list.reverse();
+    list.reverse();
 
     EXPECT_EQ(4, list.size());
 
