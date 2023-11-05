@@ -44,8 +44,7 @@ namespace chapter3 {
                 return;
             }
 
-            std::shared_ptr<Node<int>> node{std::make_shared<Node<int>>(elem, nullptr)};
-            std::shared_ptr<Node<int>> curr{head_};
+            std::shared_ptr<Node<T>> node{std::make_shared<Node<T>>(elem, nullptr)};
 
             if (index == 0) {
                 node->next_ = head_;
@@ -57,6 +56,8 @@ namespace chapter3 {
                 tail_->next_ = node;
                 tail_ = node;
             } else {
+                std::shared_ptr<Node<T>> curr{head_};
+
                 for (int i = 0; i < index - 1; i++) {
                     curr = curr->next_;
                 }
@@ -68,12 +69,11 @@ namespace chapter3 {
             size_ += 1;
         }
 
-        void erase(T index) {
+        void erase(int index) {
             if (index < 0 || index > size_ - 1) {
                 return;
             }
 
-            std::shared_ptr<Node<T>> curr = head_;
 
             if (size_ == 1) {
                 head_ = nullptr;
@@ -83,6 +83,8 @@ namespace chapter3 {
                 head_ = head_->next_;
                 firstNode->next_ = nullptr;
             } else {
+                std::shared_ptr<Node<T>> curr = head_;
+
                 for (int i = 0; i < index - 1; i++) {
                     curr = curr->next_;
                 }
