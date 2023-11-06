@@ -58,3 +58,19 @@ TEST(linkedList, chapter3) {
     std::vector<int> expectedResult{9, 12, 15, 31};
     EXPECT_EQ(expectedResult, list.traverse());
 }
+
+TEST(stack, chapter3) {
+    Stack<int> stack{};
+
+    stack.push(4);
+    stack.push(5);
+    stack.push(1);
+    stack.pop();
+    stack.pop();
+    stack.push(2);
+    stack.push(5);
+    stack.push(1);
+    stack.push(2);
+    EXPECT_EQ(1, stack.getMin());
+    EXPECT_EQ(2, stack.top());
+}
