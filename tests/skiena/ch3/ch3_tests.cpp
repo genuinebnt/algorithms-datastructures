@@ -81,18 +81,20 @@ TEST(tictactoe, chapter3) {
     std::vector<int> expected(3 * 3, 0);
     EXPECT_EQ(expected, ttt.get());
 
-    ttt.move(1, 1, 1);
+    ttt.move(2, 1, 1);
     EXPECT_EQ(false, ttt.check(1));
-    ttt.move(1, 2, 2);
-    EXPECT_EQ(false, ttt.check(2));
+    ttt.move(1, 1, 4);
+    EXPECT_EQ(false, ttt.check(4));
     ttt.move(2, 2, 1);
     EXPECT_EQ(false, ttt.check(1));
-    ttt.move(1, 3, 2);
-    EXPECT_EQ(false, ttt.check(2));
+    ttt.move(1, 2, 4);
+    EXPECT_EQ(false, ttt.check(4));
     ttt.move(3, 3, 1);
+    EXPECT_EQ(false, ttt.check(1));
+    ttt.move(1, 3, 4);
+    EXPECT_EQ(true, ttt.check(4));
 
 
-    std::vector<int> expectedAfterMove{1, 2, 2, 0, 1, 0, 0, 0, 1};
+    std::vector<int> expectedAfterMove{4, 4, 4, 1, 1, 0, 0, 0, 1};
     EXPECT_EQ(expectedAfterMove, ttt.get());
-    EXPECT_EQ(true, ttt.check(1));
 }
