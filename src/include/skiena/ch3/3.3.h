@@ -100,6 +100,36 @@ namespace chapter3 {
             size_ -= 1;
         }
 
+        void eraseAt(Node<T> *node) {
+            if (size_ == 0) {
+                return;
+            }
+
+            if (size_ == 1) {
+                if (head_ != node) {
+                    return;
+                } else {
+                    head_ = nullptr;
+                    tail_ = nullptr;
+                    size_ = 0;
+                    return;
+                }
+            }
+
+            if (tail_ == node) {
+                erase(size_ - 1);
+            }
+
+            Node<T> *nextNode = node->next_;
+
+            node->elem = node->next_->elem;
+            node->next_ = node->next_->next_;
+
+            nextNode->next_ = nullptr;
+
+            size_ -= 1;
+        }
+
         void reverse() {
             if (size_ == 0 || size_ == 1) {
                 return;

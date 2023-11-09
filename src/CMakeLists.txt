@@ -10,6 +10,8 @@ set(LIB_SOURCES
         skiena/ch3/3.2.cpp
         skiena/ch3/3.3.cpp
         include/skiena/ch3/3.4.h
+        skiena/ch3/3.8.cpp
+        include/skiena/ch3/3.8.h
 )
 
 # add static libraries

@@ -8,6 +8,7 @@
 #include "3.2.h"
 #include "3.3.h"
 #include "3.4.h"
+#include "3.8.h"
 
 #define ALGORITHMS_DATASTRUCTURES_CH3_H
 
